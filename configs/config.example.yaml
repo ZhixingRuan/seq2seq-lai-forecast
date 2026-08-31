@@ -1,0 +1,44 @@
+dataset:
+  data:
+    lat_dim: lat
+    lon_dim: lon
+    time_dim: time
+    path: /path/to/data-root/model_input/tx_1km.zarr
+  features:
+  - tmin_norm
+  - tmax_norm
+  - prcp_norm
+  - lat_norm
+  - lon_norm
+  - temp_flag
+  - prcp_flag
+  - LAI_flag
+  - LAI_norm
+  - prcp_14d_norm
+  input_seq_length: 14
+  patch_size: 100
+  target: LAI_norm
+  target_seq_length: 14
+  stride: 14
+  min_valid_fraction: 0.5
+train_loader_params:
+  batch_size: 64
+  num_workers: 8
+  pin_memory: true
+  shuffle: true
+val_loader_params:
+  batch_size: 64
+  num_workers: 8
+  pin_memory: true
+  shuffle: false
+root_dir: /path/to/data-root/model_runs
+sample: 4000
+train_params:
+  hidden_dim: 16
+  kernel_size: 3
+  lr: 0.001
+  num_epochs: 50
+  model_name: ConvLSTMSeq2SeqDOY
+time_start: '2002-07-04'
+time_end: '2022-12-31'
+train_test_split: 0.8

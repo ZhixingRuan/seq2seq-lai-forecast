@@ -1,0 +1,26 @@
+name: ml_lai
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pytorch
+  - pytorch-cuda=12.1  # drop this line for a CPU-only install
+  - numpy
+  - pandas
+  - xarray
+  - zarr
+  - dask
+  - scipy
+  - pyyaml
+  - matplotlib
+  - cartopy
+  - pyproj
+  - pyresample
+  - tensorboard
+  - pip
+  - pip:
+      - pydantic
+      - pydantic-settings
+      - typer
